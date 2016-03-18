@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Fragment.UserLogin" parent="Fragment.Content">
+        <item name="android:background">@color/clr_fragment_user_login_background</item>
+    </style>
+
+    <!--<style name="Fragment.Connect.Text" parent="Fragment.About">-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:layout_gravity">center_vertical</item>-->
+        <!--<item name="android:gravity">center_vertical|center_horizontal</item>-->
+        <!--<item name="android:text">@string/str_fragment_connect_text</item>-->
+        <!--<item name="android:textColor">@color/clr_fragment_connect_text</item>-->
+    <!--</style>-->
+
+</resources>

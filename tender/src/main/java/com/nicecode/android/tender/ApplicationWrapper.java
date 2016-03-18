@@ -25,10 +25,10 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
     // ===========================================================================
     // Status Bar
     // ===========================================================================
-//    public int STATUS_BAR_LEFT_MARGIN;
-//    public int STATUS_BAR_RIGHT_MARGIN;
-//    public int STATUS_BAR_IMAGE_SIZE;
-//    public float STATUS_BAR_TEXT_SIZE;
+    public int STATUS_BAR_LEFT_MARGIN;
+    public int STATUS_BAR_RIGHT_MARGIN;
+    public int STATUS_BAR_IMAGE_SIZE;
+    public float STATUS_BAR_TEXT_SIZE;
 //    public float STATUS_IMAGE_SIZE;
 //    public int STATUS_SELECTOR_WIDTH;
 
@@ -57,16 +57,13 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
     public float ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO;
 
     // ===========================================================================
-    // Login fragment
+    // User Login fragment
     // ===========================================================================
-//    public float FRAGMENT_LOGIN_LOGO_WIDTH_RATIO;
-//    public float FRAGMENT_LOGIN_IMAGES_SIZE_RATIO;
-//    public float FRAGMENT_LOGIN_EDIT_TEXT_SIZE;
-//    public float FRAGMENT_LOGIN_FORGOT_TEXT_SIZE;
-//    public float FRAGMENT_LOGIN_REMEMBER_TEXT_SIZE;
-//    public float FRAGMENT_LOGIN_REGISTRATION_TEXT_SIZE;
-//    public float FRAGMENT_LOGIN_BUTTON_LOGIN_TEXT_SIZE;
-//    public float FRAGMENT_LOGIN_ERROR_TEXT_SIZE;
+    public float FRAGMENT_USER_LOGIN_IMAGES_SIZE_RATIO;
+    public float FRAGMENT_USER_LOGIN_EDIT_TEXT_SIZE;
+    public float FRAGMENT_USER_LOGIN_FORGOT_TEXT_SIZE;
+    public float FRAGMENT_USER_LOGIN_SIGN_UP_TEXT_SIZE;
+    public float FRAGMENT_USER_LOGIN_GLAD_SEE_YOU_TEXT_SIZE;
 
     @Override
     public void onCreate() {
@@ -87,19 +84,19 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
             // ===========================================================================
             // Status Bar
             // ===========================================================================
-//            STATUS_BAR_LEFT_MARGIN = (int) (this.metrics.widthPixels *
-//                    this.getFloatResource(R.dimen.fl_status_bar_left_margin_ratio));
-//
-//            STATUS_BAR_RIGHT_MARGIN = (int) (this.metrics.widthPixels *
-//                    this.getFloatResource(R.dimen.fl_status_bar_right_margin_ratio));
-//
-//            STATUS_BAR_IMAGE_SIZE = (int) (this.mActionBarSize *
-//                    this.getFloatResource(R.dimen.fl_status_bar_image_size_ratio));
-//
-//            STATUS_BAR_TEXT_SIZE = this.mActionBarSize *
-//                    this.getFloatResource(R.dimen.fl_status_bar_text_size_ratio)
-//                    / this.metrics.scaledDensity;
-//
+            STATUS_BAR_LEFT_MARGIN = (int) (this.metrics.widthPixels *
+                    this.getFloatResource(R.dimen.fl_status_bar_left_margin_ratio));
+
+            STATUS_BAR_RIGHT_MARGIN = (int) (this.metrics.widthPixels *
+                    this.getFloatResource(R.dimen.fl_status_bar_right_margin_ratio));
+
+            STATUS_BAR_IMAGE_SIZE = (int) (this.mActionBarSize *
+                    this.getFloatResource(R.dimen.fl_status_bar_image_size_ratio));
+
+            STATUS_BAR_TEXT_SIZE = this.mActionBarSize *
+                    this.getFloatResource(R.dimen.fl_status_bar_text_size_ratio)
+                    / this.metrics.scaledDensity;
+
 //            STATUS_IMAGE_SIZE = this.getFloatResource(R.dimen.fl_status_bar_image_size_ratio);
 //            STATUS_SELECTOR_WIDTH = this.mActionBarSize;
 
@@ -140,6 +137,28 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
             ACTIVITY_SPLASH_LOGIN_LAYOUT_HEIGHT_RATIO = getFloatResource(R.dimen.fl_activity_splash_login_layout_height_ratio);
             ACTIVITY_SPLASH_REGISTER_LAYOUT_HEIGHT_RATIO = getFloatResource(R.dimen.fl_activity_splash_register_layout_height_ratio);
             ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO = getFloatResource(R.dimen.fl_activity_splash_login_button_margin_ratio);
+
+            // ===========================================================================
+            // User Login fragment
+            // ===========================================================================
+
+            FRAGMENT_USER_LOGIN_IMAGES_SIZE_RATIO =  this.getFloatResource(R.dimen.fl_fragment_user_login_images_size_ratio);
+
+            FRAGMENT_USER_LOGIN_EDIT_TEXT_SIZE = ((this.metrics.heightPixels *
+                    getFloatResource(R.dimen.fl_fragment_user_login_edit_text_size))
+                    / this.metrics.scaledDensity);
+
+            FRAGMENT_USER_LOGIN_FORGOT_TEXT_SIZE = ((this.metrics.heightPixels *
+                    getFloatResource(R.dimen.fl_fragment_user_login_forgot_text_size))
+                    / this.metrics.scaledDensity);
+
+            FRAGMENT_USER_LOGIN_SIGN_UP_TEXT_SIZE = ((this.metrics.heightPixels *
+                    getFloatResource(R.dimen.fl_fragment_user_login_sign_up_text_size))
+                    / this.metrics.scaledDensity);
+
+            FRAGMENT_USER_LOGIN_GLAD_SEE_YOU_TEXT_SIZE = ((this.metrics.heightPixels *
+                    getFloatResource(R.dimen.fl_fragment_user_login_glad_see_you_text_size))
+                    / this.metrics.scaledDensity);
 
             initialized = true;
         }

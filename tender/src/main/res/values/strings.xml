@@ -2,5 +2,11 @@
 
     <string name="app_name">Tender</string>
 
+    <string name="str_actionbar_project_title">
+        <![CDATA[
+         <i><b>KiT</b></i>
+        ]]>
+    </string>
+
     <string name="action_settings">Settings</string>
 </resources>

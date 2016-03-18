@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_fragment_user_login_title"> </string>
+
+    <string name="str_fragment_user_login_logo_description">Logo</string>
+    <string name="str_fragment_user_login_user_name_text_hint">User name</string>
+    <string name="str_fragment_user_login_usePassword_text_hint">Password</string>
+    <string name="str_fragment_user_login_forgot_text">Forgot password ?</string>
+
+</resources>

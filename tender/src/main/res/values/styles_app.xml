@@ -20,18 +20,18 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-    <!--<style name="AppTheme.Toolbar" parent="Theme.AppCompat.Light.NoActionBar">-->
-        <!--<item name="colorPrimary">@color/clr_actionbar_background</item>-->
-        <!--<item name="colorPrimaryDark">@color/clr_actionbar_dark_background</item>-->
-        <!--<item name="colorAccent">@color/clr_actionbar_accent_background</item>-->
-    <!--</style>-->
+    <style name="AppTheme.Toolbar.White" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/clr_actionbar_white_background</item>
+        <item name="colorPrimaryDark">@color/clr_actionbar_white_dark_background</item>
+        <item name="colorAccent">@color/clr_actionbar_white_accent_background</item>
+    </style>
 
-    <!--<style name="Toolbar" parent="Theme.AppCompat">-->
-        <!--<item name="colorPrimary">@color/clr_actionbar_background</item>-->
-        <!--<item name="colorPrimaryDark">@color/clr_actionbar_dark_background</item>-->
-        <!--<item name="colorAccent">@color/clr_actionbar_accent_background</item>-->
-        <!--<item name="contentInsetStart">0dp</item>-->
-    <!--</style>-->
+    <style name="Toolbar.White" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/clr_actionbar_white_background</item>
+        <item name="colorPrimaryDark">@color/clr_actionbar_white_dark_background</item>
+        <item name="colorAccent">@color/clr_actionbar_white_accent_background</item>
+        <item name="contentInsetStart">0dp</item>
+    </style>
 
     <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>

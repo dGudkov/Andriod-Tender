@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_activity_userlogin_back_description">Back</string>
+    <string name="str_activity_userlogin_more">More</string>
+    <string name="str_activity_userlogin_sign_up">SIGN UP</string>
+    <string name="str_activity_userlogin_glad_see_you">We are glad to see you</string>
+
+</resources>

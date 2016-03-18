@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="fl_fragment_user_login_images_size_ratio" format="float" type="dimen">0.45000</item>
+    <item name="fl_fragment_user_login_edit_text_size" format="float" type="dimen">0.02500</item>
+    <item name="fl_fragment_user_login_forgot_text_size" format="float" type="dimen">0.02500</item>
+    <item name="fl_fragment_user_login_sign_up_text_size" format="float" type="dimen">0.05000</item>
+    <item name="fl_fragment_user_login_glad_see_you_text_size" format="float" type="dimen">0.02500</item>
+
+</resources>

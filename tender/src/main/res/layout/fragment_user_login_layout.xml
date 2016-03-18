@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Fragment.UserLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/fragment_login_sign_up_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_activity_userlogin_sign_up"
+                    android:textColor="#4e4e4e"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/fragment_login_glad_see_you_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9c9c9c"
+                    android:text="@string/str_activity_userlogin_glad_see_you"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_login_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="45"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/fragment_login_user_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/widget_clientinput_layout"/>
+
+            <include
+                android:id="@+id/fragment_login_password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                layout="@layout/widget_clientinput_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/fragment_login_forgot_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/fragment_login_forgot_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:gravity="end|center_vertical"
+                        android:text="@string/str_fragment_user_login_forgot_text"
+                        android:textColor="@color/clr_fragment_user_login_forgot_text"
+                        android:clickable="false"/>
+
+                </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/fragment_login_fade_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"
+        layout="@layout/widget_fade_layout"/>
+
+</RelativeLayout>

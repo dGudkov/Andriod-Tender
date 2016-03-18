@@ -1,6 +1,7 @@
 package com.nicecode.android.tender.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -170,8 +171,8 @@ public class Activity_Splash extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_splash_login_button:
-                Snackbar.make(view, "This functionality not implemented now.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                    Intent intent = new Intent(this, Activity_UserLogin.class);
+                    startActivity(intent);
                 break;
             case R.id.activity_splash_register_button:
                 Snackbar.make(view, "This functionality not implemented now.", Snackbar.LENGTH_LONG)
@@ -242,21 +243,9 @@ public class Activity_Splash extends AppCompatActivity implements View.OnClickLi
                         layout.setVisibility(View.VISIBLE);
                     }
                 }
-//                if ((application != null) && (activity != null)) {
-//                    Intent intent;//
-//                    if (application.getPreferences().getWalkThroughtEnabled()) {
-//                        intent = new Intent(activity, Activity_WalkThrought.class);
-//                    } else {
-//                        intent = new Intent(activity, Activity_UserLogin.class);
-//                    }
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                    startActivity(intent);
-//                }
+
             } finally {
                 super.onPostExecute(aVoid);
-//                if ((activity != null) && (!activity.isFinishing())) {
-//                    activity.finish();
-//                }
             }
         }
 

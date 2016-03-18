@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="clr_widget_clientinput_layout_text_border">#e4e9ec</color>
+    <color name="clr_widget_clientinput_layout_text_border_selected">#00d8f7</color>
+    <color name="clr_widget_clientinput_layout_text">#f4fcfd</color>
+
+    <color name="clr_widget_clientinput_text_hint">#b9bcc1</color>
+    <color name="clr_widget_clientinput_text">#000000</color>
+
+</resources>

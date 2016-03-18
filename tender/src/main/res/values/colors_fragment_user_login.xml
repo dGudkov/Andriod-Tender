@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="clr_fragment_user_login_background">#f4fcfd</color>
+    <!--<color name="clr_fragment_login_bottom_layout_background">#00b1ca</color>-->
+
+    <!--<color name="clr_fragment_login_button">#f85a78</color>-->
+    <!--<color name="clr_fragment_login_button_disabled">#919191</color>-->
+    <!--<color name="clr_fragment_login_button_text">#ffffff</color>-->
+    <!--<color name="clr_fragment_login_button_text_pressed">#d1cfcf</color>-->
+    <!--<color name="clr_fragment_login_button_text_disabled">#b9b7b7</color>-->
+
+    <!--<color name="clr_fragment_login_layout_text_border">#e4e9ec</color>-->
+    <!--<color name="clr_fragment_login_layout_text_background">#fdfdfd</color>-->
+    <!--<color name="clr_fragment_login_user_text_hint">#b9bcc1</color>-->
+    <!--<color name="clr_fragment_login_user_text">#000000</color>-->
+    <!--<color name="clr_fragment_login_password_text_hint">#b9bcc1</color>-->
+    <!--<color name="clr_fragment_login_password_text">#000000</color>-->
+
+    <!--<color name="clr_fragment_login_remember_text">#848a96</color>-->
+    <color name="clr_fragment_user_login_forgot_text">#f85a78</color>
+    <!--<color name="clr_fragment_login_registration_text">#848a96</color>-->
+
+    <!--<color name="clr_fragment_login_error_text">#f85a78</color>-->
+
+</resources>
