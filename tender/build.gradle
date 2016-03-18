@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+def versionBuild = 3
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        applicationId "com.nicecode.andriod.tender"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+    }
+    lintOptions {
+        abortOnError true
+    }
+    applicationVariants.all { variant ->
+        def output = variant.outputs.get(0)
+        File apk = output.outputFile
+        String newName = output.outputFile.name
+                .replace("tender-debug", "NCTender-${versionName}.${versionBuild}-debug")
+                .replace("tender-release", "NCTender-${versionName}.${versionBuild}")
+        output.outputFile = new File(apk.parentFile, newName)
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+//            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile rootProject.appCompat
+    compile rootProject.appDesign
+}
