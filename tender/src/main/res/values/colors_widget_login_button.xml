@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="clr_widget_login_button_stroke_normal">#29b6f6</color>
+    <color name="clr_widget_login_button_stroke_pressed">#ffffff</color>
+
+    <color name="clr_widget_login_button_text_normal">#29b6f6</color>
+    <color name="clr_widget_login_button_text_pressed">#ffffff</color>
+
+</resources>

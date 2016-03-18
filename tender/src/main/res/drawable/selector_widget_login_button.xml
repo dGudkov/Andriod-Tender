@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/dim_widget_login_button_corner_radius"/>
+            <stroke
+                android:width="@dimen/dim_widget_login_button_stroke_width"
+                android:color="@color/clr_widget_login_button_stroke_pressed"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/dim_widget_login_button_corner_radius"/>
+            <stroke
+                android:width="@dimen/dim_widget_login_button_stroke_width"
+                android:color="@color/clr_widget_login_button_stroke_normal"/>
+
+        </shape>
+    </item>
+</selector>

@@ -10,5 +10,8 @@
     <item name="fl_activity_splash_logo_image_height_ratio" format="float" type="dimen">0.18000</item>
     <item name="fl_activity_splash_kit_image_width_ratio" format="float" type="dimen">0.25000</item>
     <item name="fl_activity_splash_kit_image_height_ratio" format="float" type="dimen">0.10000</item>
+    <item name="fl_activity_splash_login_layout_height_ratio" format="float" type="dimen">0.08500</item>
+    <item name="fl_activity_splash_register_layout_height_ratio" format="float" type="dimen">0.08500</item>
+    <item name="fl_activity_splash_login_button_margin_ratio" format="float" type="dimen">0.11000</item>
 
 </resources>

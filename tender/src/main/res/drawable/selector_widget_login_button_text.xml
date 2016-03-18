@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:state_pressed="true"
+        android:color="@color/clr_widget_login_button_text_pressed" />
+
+    <item
+        android:color="@color/clr_widget_login_button_text_normal"
+        android:textStyle="normal" />
+
+</selector>

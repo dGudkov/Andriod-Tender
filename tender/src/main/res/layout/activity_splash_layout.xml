@@ -21,7 +21,8 @@
             android:layout_above="@+id/activity_splash_kit"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:contentDescription="@string/str_activity_splash_logo_description"/>
 
         <ImageView
             android:id="@+id/activity_splash_kit"
@@ -30,7 +31,8 @@
             android:layout_above="@+id/activity_splash_delimiter"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="15dp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:contentDescription="@string/str_activity_splash_kit_description"/>
 
         <View
             android:id="@+id/activity_splash_delimiter"
@@ -45,6 +47,53 @@
             style="@style/Activity.Splash.Text.App"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_splash_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/activity_splash_image_layout"
+        android:layout_above="@+id/activity_splash_version_text"
+        android:background="@null" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null" >
+
+            <include
+                android:id="@+id/activity_splash_login_button"
+                layout="@layout/widget_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentBottom="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@null" >
+
+            <include
+                android:id="@+id/activity_splash_register_button"
+                layout="@layout/widget_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentTop="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/activity_splash_version_text"

@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,22 +27,27 @@ import com.nicecode.android.tender.library.utils.WeakReference;
  * @since 18.03.16.
  */
 
-public class Activity_Splash extends AppCompatActivity {
+public class Activity_Splash extends AppCompatActivity implements View.OnClickListener {
 
     protected ApplicationWrapper mApplication;
     private View mRootView;
     private TextView mVersionText, mAppText;
 
-    private LoadApplicationTask mLoadApplicationTask;
     private RelativeLayout mImageLayout;
     private View mDelimiter;
     private ImageView mKitImage, mLogoImage;
+    private LoadApplicationTask mLoadApplicationTask;
+    private LinearLayout mButtonLayout;
+    private RelativeLayout mLoginLayout, mRegisterLayout;
+    private TextView mLoginText, mRegisterText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_layout);
         try {
+            this.mApplication = (ApplicationWrapper) this.getApplication();
+            this.mApplication.init(this);
             this.mRootView = findViewById(R.id.activity_splash_layout);
             this.mLogoImage = (ImageView) findViewById(R.id.activity_splash_logo);
             this.mKitImage = (ImageView) findViewById(R.id.activity_splash_kit);
@@ -48,8 +55,16 @@ public class Activity_Splash extends AppCompatActivity {
             this.mVersionText = (TextView) findViewById(R.id.activity_splash_version_text);
             this.mAppText = (TextView) findViewById(R.id.activity_splash_app_text);
             this.mImageLayout = (RelativeLayout) findViewById(R.id.activity_splash_image_layout);
-            this.mApplication = (ApplicationWrapper) this.getApplication();
-            this.mApplication.init(this);
+            this.mButtonLayout = (LinearLayout) findViewById(R.id.activity_splash_button_layout);
+            this.mLoginLayout = (RelativeLayout) findViewById(R.id.activity_splash_login_button);
+            this.mRegisterLayout = (RelativeLayout) findViewById(R.id.activity_splash_register_button);
+
+            this.mLoginText = (TextView) this.mLoginLayout.findViewById(R.id.widget_login_button_text);
+            this.mRegisterText = (TextView) this.mRegisterLayout.findViewById(R.id.widget_login_button_text);
+
+            this.mLoginLayout.setOnClickListener(this);
+            this.mRegisterLayout.setOnClickListener(this);
+
             this.intiLayout();
         } catch (Exception e) {
             throw new ApplicationException(e);
@@ -77,12 +92,37 @@ public class Activity_Splash extends AppCompatActivity {
                 height *
                         this.mApplication.ACTIVITY_SPLASH_IMAGE_LAYOUT_HEIGHT_RATIO
         );
+
+        rLp = (RelativeLayout.LayoutParams) this.mLoginLayout.getLayoutParams();
+        rLp.height = (int) (
+                height *
+                        this.mApplication.ACTIVITY_SPLASH_LOGIN_LAYOUT_HEIGHT_RATIO
+        );
+        rLp.leftMargin = rLp.rightMargin = (int) (
+                height *
+                        this.mApplication.ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO
+        );
+
+        rLp = (RelativeLayout.LayoutParams) this.mRegisterLayout.getLayoutParams();
+        rLp.height = (int) (
+                height *
+                        this.mApplication.ACTIVITY_SPLASH_REGISTER_LAYOUT_HEIGHT_RATIO
+        );
+        rLp.leftMargin = rLp.rightMargin = (int) (
+                height *
+                        this.mApplication.ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO
+        );
+
+        this.mLoginText.setText(getString(R.string.str_activity_splash_login_text));
+        this.mRegisterText.setText(getString(R.string.str_activity_splash_register_text));
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         this.mApplication = (ApplicationWrapper) this.getApplication();
+        this.mButtonLayout.setVisibility(View.INVISIBLE);
         String version;
         try {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -111,9 +151,34 @@ public class Activity_Splash extends AppCompatActivity {
     protected void onDestroy() {
         this.mRootView = LayoutUtils.cleanLayout(this.mRootView);
         this.mVersionText = null;
+        this.mAppText = null;
         this.mImageLayout = null;
+        this.mDelimiter = null;
+        this.mKitImage = null;
+        this.mLogoImage = null;
+        this.mButtonLayout = null;
+        this.mLoginLayout = null;
+        this.mRegisterLayout = null;
+        this.mLoginText = null;
+        this.mRegisterText = null;
+        this.mLoadApplicationTask = null;
         super.onDestroy();
         this.mApplication = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.activity_splash_login_button:
+                Snackbar.make(view, "This functionality not implemented now.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                break;
+            case R.id.activity_splash_register_button:
+                Snackbar.make(view, "This functionality not implemented now.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                break;
+        }
+
     }
 
     private class LoadApplicationTask extends AsyncTask<Void, String, Void> {
@@ -168,9 +233,15 @@ public class Activity_Splash extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            Activity activity = this.mActivity.get();
+            Activity_Splash activity = this.mActivity.get();
             try {
                 ApplicationWrapper application = this.mApplicationWrapper.get();
+                if (activity != null) {
+                    LinearLayout layout = activity.mButtonLayout;
+                    if (layout != null) {
+                        layout.setVisibility(View.VISIBLE);
+                    }
+                }
 //                if ((application != null) && (activity != null)) {
 //                    Intent intent;//
 //                    if (application.getPreferences().getWalkThroughtEnabled()) {

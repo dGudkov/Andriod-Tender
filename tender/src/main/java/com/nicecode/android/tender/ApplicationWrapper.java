@@ -42,7 +42,7 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
     // ===========================================================================
     // Splash activity
     // ===========================================================================
-    public final int ACTIVITY_SPLASH_TIME = 5000;
+    public final int ACTIVITY_SPLASH_TIME = 1000;
     public float ACTIVITY_SPLASH_TEXT_VERSION_SIZE;
     public float ACTIVITY_SPLASH_TEXT_APP_SIZE;
     public float ACTIVITY_SPLASH_IMAGE_LAYOUT_HEIGHT_RATIO;
@@ -52,6 +52,9 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
     public float ACTIVITY_SPLASH_LOGO_IMAGE_HEIGHT_RATIO;
     public float ACTIVITY_SPLASH_KIT_IMAGE_WIDTH_RATIO;
     public float ACTIVITY_SPLASH_KIT_IMAGE_HEIGHT_RATIO;
+    public float ACTIVITY_SPLASH_LOGIN_LAYOUT_HEIGHT_RATIO;
+    public float ACTIVITY_SPLASH_REGISTER_LAYOUT_HEIGHT_RATIO;
+    public float ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO;
 
     // ===========================================================================
     // Login fragment
@@ -134,6 +137,9 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
             ACTIVITY_SPLASH_KIT_IMAGE_WIDTH_RATIO = getFloatResource(R.dimen.fl_activity_splash_kit_image_width_ratio);
             ACTIVITY_SPLASH_KIT_IMAGE_HEIGHT_RATIO = getFloatResource(R.dimen.fl_activity_splash_kit_image_height_ratio);
 
+            ACTIVITY_SPLASH_LOGIN_LAYOUT_HEIGHT_RATIO = getFloatResource(R.dimen.fl_activity_splash_login_layout_height_ratio);
+            ACTIVITY_SPLASH_REGISTER_LAYOUT_HEIGHT_RATIO = getFloatResource(R.dimen.fl_activity_splash_register_layout_height_ratio);
+            ACTIVITY_SPLASH_LOGIN_BUTTON_MARGIN_RATIO = getFloatResource(R.dimen.fl_activity_splash_login_button_margin_ratio);
 
             initialized = true;
         }

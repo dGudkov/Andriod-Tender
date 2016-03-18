@@ -3,5 +3,10 @@
 
     <string name="str_activity_splash_version_text">KiT</string>
     <string name="str_activity_splash_app_text">Kings in Tenders</string>
+    <string name="str_activity_splash_logo_description">Application logo</string>
+    <string name="str_activity_splash_kit_description">Application kit</string>
+
+    <string name="str_activity_splash_login_text">Sign up</string>
+    <string name="str_activity_splash_register_text">Registration</string>
 
 </resources>
