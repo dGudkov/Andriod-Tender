@@ -1,7 +1,8 @@
 buildscript {
 
     String appVersion = "23"
-//    String gsonVersion = "2.3.1"
+    String gsonVersion = "2.3.1"
+    String imageLoaderVersion = "1.9.5"
 //    String facebookVersion = "4.6.0"
 //    String googleVersion = "8.3.0"
 //    String apacheVersion = "1.3.2"
@@ -19,7 +20,9 @@ buildscript {
     project.extensions.add("appCompat", "com.android.support:appcompat-v7:${compatLibrary}")
     project.extensions.add("appDesign", "com.android.support:design:${compatLibrary}")
 
-    //  project.extensions.add("googleGson", "com.google.code.gson:gson:${gsonVersion}")
+    project.extensions.add("googleGson", "com.google.code.gson:gson:${gsonVersion}")
+    project.extensions.add("imageLoader", "com.nostra13.universalimageloader:universal-image-loader:${imageLoaderVersion}")
+
     //project.extensions.add("facebook", "com.facebook.android:facebook-android-sdk:${facebookVersion}")
 //    project.extensions.add("appSupport", "com.android.support:support-v4:${supportLibrary}")
 //    project.extensions.add("recyclerView", "com.android.support:recyclerview-v7:${compatLibrary}")

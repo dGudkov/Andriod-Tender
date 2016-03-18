@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_activity_splash_version_text">KiT</string>
+    <string name="str_activity_splash_app_text">Kings in Tenders</string>
+
+</resources>

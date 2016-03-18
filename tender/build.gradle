@@ -45,4 +45,6 @@ android {
 dependencies {
     compile rootProject.appCompat
     compile rootProject.appDesign
+    compile rootProject.googleGson
+    compile rootProject.imageLoader
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="clr_activity_splash_background_start">#104a9a</color>
+    <color name="clr_activity_splash_background_end">#43bfe0</color>
+    <color name="clr_activity_splash_text_version">#87bedc</color>
+    <color name="clr_activity_splash_app_version">#ffffff</color>
+    <color name="clr_activity_splash_delimiter">#ffffff</color>
+
+</resources>
