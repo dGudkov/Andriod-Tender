@@ -1,5 +1,6 @@
 package com.nicecode.android.tender.fragments;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -13,14 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.internal.LinkedTreeMap;
 import com.nicecode.android.tender.ApplicationWrapper;
 import com.nicecode.android.tender.R;
-import com.nicecode.android.tender.dto.Response;
-import com.nicecode.android.tender.dto.User;
+import com.nicecode.android.tender.activity.Activity_FilterList;
+import com.nicecode.android.tender.dto.Filters;
+import com.nicecode.android.tender.dto.ResponseUserLogin;
+import com.nicecode.android.tender.dto.UserLogin;
 import com.nicecode.android.tender.library.async.AsyncTask;
 import com.nicecode.android.tender.library.utils.LayoutUtils;
 import com.nicecode.android.tender.library.utils.WeakReference;
+import com.nicecode.android.tender.library.widget.EmailTextWatcher;
 import com.nicecode.android.tender.library.widget.EmptyTextWatcher;
 import com.nicecode.android.tender.library.widget.TextWatcher;
 import com.nicecode.android.tender.utils.Utils;
@@ -38,7 +41,8 @@ public class Fragment_User_Login extends BaseFragment {
     private View mUserNameInnerLayout, mPasswordInnerLayout;
     private EditText mUserNameText, mPasswordText;
     private ImageView mUserNameImage, mPasswordImage;
-    private EmptyTextWatcher mUserNameTextWatcher, mPasswordWatcher;
+    private EmptyTextWatcher mPasswordWatcher;
+    private EmailTextWatcher mEmailTextWatcher;
 
     private LoginUserTask mLoginUserTask;
     private TextView mMoreText;
@@ -84,11 +88,11 @@ public class Fragment_User_Login extends BaseFragment {
         this.mPasswordText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         this.mPasswordImage = (ImageView) this.mPasswordLayout.findViewById(R.id.widget_clientinput_image);
 
-        this.mUserNameTextWatcher = new EmptyTextWatcher(this.mUserNameText, new TextWatcher.EditTextWatcherChanged() {
+        this.mEmailTextWatcher = new EmailTextWatcher(this.mUserNameText, new TextWatcher.EditTextWatcherChanged() {
             @Override
             public void onEditTextWatcherChanged() {
                 Fragment_User_Login fragment = Fragment_User_Login.this;
-                if (fragment.mUserNameTextWatcher.isValid()) {
+                if (fragment.mUserNameText.getText().length() > 0) {
                     fragment.mUserNameImage.setVisibility(View.GONE);
                 } else {
                     fragment.mUserNameImage.setVisibility(View.VISIBLE);
@@ -125,7 +129,7 @@ public class Fragment_User_Login extends BaseFragment {
 
                 Fragment_User_Login fragment = Fragment_User_Login.this;
 
-                fragment.initImageSize(fragment.mUserNameInnerLayout, fragment.mUserNameImage, R.drawable.user);
+                fragment.initImageSize(fragment.mUserNameInnerLayout, fragment.mUserNameImage, R.drawable.email);
                 fragment.initImageSize(fragment.mPasswordInnerLayout, fragment.mPasswordImage, R.drawable.password);
             }
         });
@@ -245,7 +249,7 @@ public class Fragment_User_Login extends BaseFragment {
         updateDetailLayoutParams(
                 false,
                 this.mUserNameText,
-                this.mUserNameTextWatcher,
+                this.mEmailTextWatcher,
                 this.mUserNameInnerLayout,
                 this.mUserNameImage, this
         );
@@ -271,7 +275,7 @@ public class Fragment_User_Login extends BaseFragment {
         updateDetailLayoutParams(
                 true,
                 this.mUserNameText,
-                this.mUserNameTextWatcher,
+                this.mEmailTextWatcher,
                 this.mUserNameInnerLayout,
                 this.mUserNameImage, null
         );
@@ -302,6 +306,8 @@ public class Fragment_User_Login extends BaseFragment {
         this.mForgotTextLayout = null;
         this.mSugnUptext = null;
         this.mGladSeeYou = null;
+        this.mEmailTextWatcher = null;
+        this.mPasswordWatcher = null;
         super.onDestroy();
     }
 
@@ -338,7 +344,7 @@ public class Fragment_User_Login extends BaseFragment {
 
     private void validateContinue() {
         boolean valid =
-                (this.mUserNameTextWatcher.isValid()) &&
+                (this.mEmailTextWatcher.isValid()) &&
                         (this.mPasswordWatcher.isValid());
         this.mMoreText.setEnabled(valid);
     }
@@ -365,7 +371,7 @@ public class Fragment_User_Login extends BaseFragment {
                 (v.getId() == R.id.activity_userlogin_status_bar_more));
     }
 
-    private class LoginUserTask extends AsyncTask<Void, Void, Response> {
+    private class LoginUserTask extends AsyncTask<Void, Void, ResponseUserLogin> {
 
         private WeakReference<Fragment_User_Login> mFragment;
         private String mUserName, mUserPass;
@@ -404,15 +410,22 @@ public class Fragment_User_Login extends BaseFragment {
         }
 
         @Override
-        protected Response doInBackground(Void... params) {
-            Response response = null;
+        protected ResponseUserLogin doInBackground(Void... params) {
+            ResponseUserLogin response = null;
             Fragment_User_Login fragment = this.mFragment.get();
+            ApplicationWrapper application = fragment.mApplication;
 
-            if (fragment != null) {
+            if ((fragment != null) && (application != null)) {
                 try {
                     this.stopIfCancelled();
                     response = Utils.LoginUser(this.mUserName, this.mUserPass);
-                    response.validate();
+                    if (response != null) {
+                        response.validate();
+                        if (response.getErrorMessage() == null) {
+                            Filters[] filter = Utils.GetFilters(response.getUserLogin().getToken());
+                            application.getPreferences().setHasFilters(((filter != null) && (filter.length > 0)));
+                        }
+                    }
                 } catch (Exception e) {
                     Log.e("Fragment_Registration", "Error: " + e.getMessage());
                 }
@@ -421,31 +434,29 @@ public class Fragment_User_Login extends BaseFragment {
         }
 
         @Override
-        protected void onPostExecute(Response response) {
+        protected void onPostExecute(ResponseUserLogin response) {
             Fragment_User_Login fragment = this.mFragment.get();
             try {
                 if (fragment != null) {
                     ApplicationWrapper application = fragment.mApplication;
                     if (response != null) {
                         if (response.getErrorMessage() == null) {
-                            if (response.getData() instanceof LinkedTreeMap) {
-                                LinkedTreeMap<String, Object> map = (LinkedTreeMap<String, Object>) response.getData();
-                                try {
-                                    if (application != null) {
-                                        application.getPreferences().setUser(new User((LinkedTreeMap<String, Object>) map.get("user")));
-                                        application.getPreferences().setToken((String) map.get("token"));
-//                            Intent intent= new Intent(fragment.getActivity(), Activity_GetPhoto.class);
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                            startActivity(intent);
-//                            if (!fragment.getActivity().isFinishing()) {
-//                                fragment.getActivity().finish();
-//                            }
+                            if (response.getUserLogin() != null) {
+                                UserLogin userLogin = response.getUserLogin();
+                                if (application != null) {
+                                    application.getPreferences().setUser(userLogin.getUser());
+                                    application.getPreferences().setToken(userLogin.getToken());
+                                    Intent intent = null;
+                      //              if (application.getPreferences().isHasFilters()) {
+                                        intent = new Intent(fragment.getActivity(), Activity_FilterList.class);
+                        //            }
+                                    if (intent != null) {
+                                        startActivity(intent);
                                     }
-                                } catch (ClassCastException e) {
-                                    Snackbar.make(fragment.mRootView, "Unknonw ClassCast error.", Snackbar.LENGTH_LONG)
-                                            .setAction("Action", null).show();
+                                    if (!fragment.getActivity().isFinishing()) {
+                                        fragment.getActivity().finish();
+                                    }
                                 }
-
                             } else {
                                 Snackbar.make(fragment.mRootView, "Unknonw data error.", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();

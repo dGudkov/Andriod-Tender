@@ -26,7 +26,7 @@
                 app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
                 app:theme="@style/Toolbar.White">
 
-                <RelativeLayout style="@style/ActionBar.Background"
+                <RelativeLayout style="@style/ActionBar.Background.White"
                                 android:layout_width="fill_parent"
                                 android:layout_height="?android:actionBarSize"
                                 android:layout_alignParentLeft="true"
@@ -36,7 +36,7 @@
 
                     <RelativeLayout
                         android:id="@+id/activity_userlogin_status_bar_back_layout"
-                        style="@style/ActionBar.Background"
+                        style="@style/ActionBar.Background.White"
                         android:layout_width="?android:actionBarSize"
                         android:layout_height="?android:actionBarSize"
                         android:clickable="true"
@@ -52,7 +52,7 @@
 
                     <TextView
                         android:id="@+id/activity_userlogin_header_title"
-                        style="@style/ActionBar.Title"
+                        style="@style/ActionBar.Title.White"
                         android:layout_width="match_parent"
                         android:layout_height="?android:actionBarSize"
                         android:gravity="center_horizontal|center_vertical"
@@ -60,7 +60,7 @@
 
                     <RelativeLayout
                         android:id="@+id/activity_userlogin_status_bar_more_layout"
-                        style="@style/ActionBar.Background"
+                        style="@style/ActionBar.Background.White"
                         android:layout_width="wrap_content"
                         android:layout_height="?android:actionBarSize"
                         android:layout_alignParentEnd="true"

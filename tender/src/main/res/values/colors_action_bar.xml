@@ -5,7 +5,13 @@
     <color name="clr_actionbar_white_dark_background">#2f92c5</color>
     <color name="clr_actionbar_white_accent_background">#ffffff</color>
     <color name="clr_actionbar_white_title">#29b6f6</color>
-    <color name="clr_actionbar_white_shadow">#3c000000</color>
+    <color name="clr_actionbar_white_shadow">#29b6f6</color>
+
+    <color name="clr_actionbar_blue_background">#104a9a</color>
+    <color name="clr_actionbar_blue_dark_background">#43bfe0</color>
+    <color name="clr_actionbar_blue_accent_background">#104a9a</color>
+    <color name="clr_actionbar_blue_title">#ffffff</color>
+    <color name="clr_actionbar_blue_shadow">#43bfe0</color>
 
 
     <color name="clr_actionbar_more_text_enabled">#29b6f6</color>

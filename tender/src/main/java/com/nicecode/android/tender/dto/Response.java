@@ -13,17 +13,18 @@ public class Response {
     @SerializedName("status_code")
     private Integer statusCode;
 
-    @SerializedName("data")
-    private Object data;
-
     @SerializedName("details")
     private Object details;
+
+    @SerializedName("detail")
+    private Object detail;
 
     @SerializedName("error")
     private String errorMessage;
 
-    public Response(int statusCode) {
+    public Response(int statusCode, String errorMessage) {
         this.statusCode = statusCode;
+        this.errorMessage = errorMessage;
     }
 
     public Integer getStatusCode() {
@@ -32,14 +33,6 @@ public class Response {
 
     public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
     }
 
     public Object getDetails() {
@@ -56,6 +49,14 @@ public class Response {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public Object getDetail() {
+        return detail;
+    }
+
+    public void setDetail(Object detail) {
+        this.detail = detail;
     }
 
     public boolean validate() {

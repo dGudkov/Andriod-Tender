@@ -125,6 +125,11 @@ public abstract class ToolBarFragmentActivity extends BaseActivity
         }
     }
 
+
+    @Override
+    public void onClick(View v) {
+    }
+
     @SuppressWarnings("unused")
     public Toolbar getToolBar() {
         return mToolBar;

@@ -22,6 +22,7 @@ public class Preferences {
     private final Gson mGson;
     private User user;
     private String token;
+    private boolean hasFilters = false;
 
     public Preferences(Context context) {
         this.mGson = new Gson();
@@ -46,5 +47,13 @@ public class Preferences {
 
     public String getToken() {
         return token;
+    }
+
+    public void setHasFilters(boolean hasFilters) {
+        this.hasFilters = hasFilters;
+    }
+
+    public boolean isHasFilters() {
+        return hasFilters;
     }
 }

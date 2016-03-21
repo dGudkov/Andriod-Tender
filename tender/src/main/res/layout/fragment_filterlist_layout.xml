@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/fragment_filter_list"
+             style="@style/Fragment.FilterList"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#d34343">
+
+    <com.nicecode.android.tender.library.slidelistview.SlideAndDragListView
+        android:id="@+id/fragment_filter_list_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/black"
+        android:dividerHeight="0.5dip"
+        android:background="@null">
+    </com.nicecode.android.tender.library.slidelistview.SlideAndDragListView>
+
+    <include
+        android:id="@+id/fragment_filter_list_wait_layout"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:visibility="invisible"
+        layout="@layout/widget_fade_layout"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fragment_filter_list_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:background="#d34343"
+        android:src="@drawable/fab" />
+
+</FrameLayout>

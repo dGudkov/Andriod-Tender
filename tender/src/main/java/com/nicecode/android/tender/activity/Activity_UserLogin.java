@@ -87,7 +87,6 @@ public class Activity_UserLogin extends BaseActivity {
         TextView text = ((TextView) this.mRootView.findViewById(R.id.activity_userlogin_status_bar_more));
         text.setTextSize(this.mApplication.STATUS_BAR_TEXT_SIZE);
 
-
         LayoutUtils.loadImage(image, R.drawable.back_button, R.drawable.back_button);
     }
 

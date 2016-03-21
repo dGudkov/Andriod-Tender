@@ -26,11 +26,25 @@
         <item name="colorAccent">@color/clr_actionbar_white_accent_background</item>
     </style>
 
-    <style name="Toolbar.White" parent="Theme.AppCompat">
+    <style name="AppTheme.Toolbar.Blue" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/clr_actionbar_white_background</item>
         <item name="colorPrimaryDark">@color/clr_actionbar_white_dark_background</item>
         <item name="colorAccent">@color/clr_actionbar_white_accent_background</item>
+    </style>
+
+    <style name="Toolbar.White" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/clr_actionbar_white_background</item>
+        <item name="colorPrimaryDark">@color/clr_actionbar_white_dark_background</item>
         <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <style name="Toolbar.Blue" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/clr_actionbar_blue_background</item>
+        <item name="colorPrimaryDark">@color/clr_actionbar_blue_dark_background</item>
+        <item name="colorAccent">@color/clr_actionbar_blue_accent_background</item>
+        <item name="android:background">@drawable/action_bar_background_blue</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <style name="AppTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">

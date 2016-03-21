@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_activity_filterlist_header">Filters</string>
+    <string name="str_activity_filterlist_menu_description">Menu</string>
+    <string name="str_activity_filterlist_back_description">Back</string>
+
+</resources>

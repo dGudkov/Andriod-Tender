@@ -26,15 +26,6 @@ public class User {
     @SerializedName("email")
     private String eMail;
 
-    public User(LinkedTreeMap<String, Object> userMap) {
-        this.userId = ((Double) userMap.get("id")).intValue();
-        this.firstName = (String) userMap.get("first_name");
-        this.lastName = (String) userMap.get("last_name");
-        this.phone = (String) userMap.get("phone");
-        this.eMail = (String) userMap.get("phone");
-
-    }
-
     public Integer getUserId() {
         return userId;
     }

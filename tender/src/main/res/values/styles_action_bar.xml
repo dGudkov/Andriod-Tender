@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ActionBar.Background" parent="android:TextAppearance.Holo">
+    <style name="ActionBar.Background.White" parent="android:TextAppearance.Holo">
         <item name="android:background">@color/clr_actionbar_white_background</item>
     </style>
 
-    <style name="ActionBar.Field" parent="ActionBar.Background">
+    <style name="ActionBar.Background.Blue" parent="android:TextAppearance.Holo">
+        <item name="android:background">@drawable/action_bar_background_blue</item>
+    </style>
+
+    <style name="ActionBar.Field" parent="android:TextAppearance.Holo">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@null</item>
@@ -26,8 +30,14 @@
         <item name="android:filterTouchesWhenObscured">true</item>
     </style>
 
-    <style name="ActionBar.Title" parent="ActionBar.Field">
+    <style name="ActionBar.Title.White" parent="ActionBar.Field">
         <item name="android:textColor">@color/clr_actionbar_white_title</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ActionBar.Title.Blue" parent="ActionBar.Field">
+        <item name="android:textColor">@color/clr_actionbar_blue_title</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textStyle">bold</item>
     </style>

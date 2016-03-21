@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="fl_fragment_filter_list_menu_button_width">48dip</dimen>
+    <dimen name="fl_fragment_filter_list_menu_text_size">7sp</dimen>
+    <dimen name="fl_fragment_filter_list_item_height">66dip</dimen>
+
+
+</resources>

@@ -25,4 +25,8 @@ public abstract class BaseActivity extends ToolBarFragmentActivity {
         this.mApplication = null;
         super.onDestroy();
     }
+
+
+
+
 }
