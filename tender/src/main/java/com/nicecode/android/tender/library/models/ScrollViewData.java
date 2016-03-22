@@ -17,7 +17,6 @@ public abstract class ScrollViewData implements IScrollViewData {
     protected int viewId;
     protected Context mContext;
 
-
     public ScrollViewData(int viewId) {
         this.viewId = viewId;
     }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="clr_widget_filter_card_background">#ffffff</color>
+
+    <color name="clr_widget_filter_paid_color">#04c992</color>
+    <color name="clr_widget_filter_unpaid_color">#ff4040</color>
+
+</resources>

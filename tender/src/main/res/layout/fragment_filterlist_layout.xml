@@ -4,15 +4,14 @@
              style="@style/Fragment.FilterList"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="#d34343">
+             android:background="@color/clr_fragment_filter_list_background">
 
     <com.nicecode.android.tender.library.slidelistview.SlideAndDragListView
         android:id="@+id/fragment_filter_list_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@android:color/black"
-        android:dividerHeight="0.5dip"
-        android:background="@null">
+        android:divider="@null"
+        android:background="@color/clr_fragment_filter_list_background" >
     </com.nicecode.android.tender.library.slidelistview.SlideAndDragListView>
 
     <include

@@ -2,6 +2,7 @@ package com.nicecode.android.tender.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,10 +29,30 @@ public class Filters extends Response {
     @SerializedName("start_price")
     private Double startPrice;
 
-    public Filters(int statusCode, String errorMessage) {
-        super(statusCode, errorMessage);
+    @SerializedName("comment")
+    private String comment;
+
+    @SerializedName("paid")
+    private Date paidDate;
+
+    @SerializedName("assigned")
+    private Boolean assigned;
+
+    public Filters() {
+        super(0, null);
+        this.comment = "Is not paid";
     }
 
+    public Filters(Filters filter) {
+        this();
+        this.filterId = filter.getFilterId();
+        this.regions = filter.getRegions();
+        this.categoriesOkpd1 = filter.getCategoriesOkpd1();
+        this.categoriesOkpd2 = filter.getCategoriesOkpd2();
+        this.startPrice =filter.getStartPrice();
+        this.comment = filter.getComment();
+        this.paidDate = null;
+    }
     public Integer getFilterId() {
         return filterId;
     }
@@ -70,5 +91,29 @@ public class Filters extends Response {
 
     public void setStartPrice(Double startPrice) {
         this.startPrice = startPrice;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Date getPaid() {
+        return paidDate;
+    }
+
+    public void setPaid(Date paidDate) {
+        this.paidDate = paidDate;
+    }
+
+    public Boolean getAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(Boolean assigned) {
+        this.assigned = assigned;
     }
 }

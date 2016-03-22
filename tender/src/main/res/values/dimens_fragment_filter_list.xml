@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="fl_fragment_filter_list_card_padding">5dp</dimen>
+    <item name="fl_fragment_filter_list_card_height_ratio" format="float" type="dimen">0.10000</item>
+    <item name="fl_fragment_filter_list_comment_text_size" format="float" type="dimen">0.01600</item>
+    <item name="fl_fragment_filter_list_card_checkbox_layout_width_ratio" format="float" type="dimen">0.16000</item>
+    <item name="fl_fragment_filter_list_card_checkbox_width_ratio" format="float" type="dimen">0.80000</item>
+
     <dimen name="fl_fragment_filter_list_menu_button_width">48dip</dimen>
     <dimen name="fl_fragment_filter_list_menu_text_size">7sp</dimen>
     <dimen name="fl_fragment_filter_list_item_height">66dip</dimen>

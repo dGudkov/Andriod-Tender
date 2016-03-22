@@ -27,6 +27,7 @@ import com.nicecode.android.tender.models.ViewData_Filters;
 import com.nicecode.android.tender.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -286,7 +287,6 @@ public class Fragment_FilterList extends BaseFragment
 
                 try {
                     this.stopIfCancelled();
-                    Thread.sleep(5000);
                     String token = application.getPreferences().getToken();
 
                     filter = Utils.GetFilters(token);
@@ -309,8 +309,12 @@ public class Fragment_FilterList extends BaseFragment
                         ArrayList<ViewData_Filters> productList = fragment.mFiltersList;
                         productList.clear();
 
+                        Filters newFilter;
                         for (int i = 0; i < 1; i++)
                             for (Filters filter : filters) {
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.add(Calendar.DAY_OF_MONTH, 20);
+                                filter.setPaid(calendar.getTime());
                                 productList.add(
                                         new ViewData_Filters(
                                                 fragment.mApplication,
@@ -318,24 +322,30 @@ public class Fragment_FilterList extends BaseFragment
                                                 R.layout.widget_filter_card_layout
                                         )
                                 );
+                                newFilter = new Filters(filter);
+                                newFilter.setAssigned(true);
                                 productList.add(
                                         new ViewData_Filters(
                                                 fragment.mApplication,
-                                                filter,
+                                                newFilter,
                                                 R.layout.widget_filter_card_layout
                                         )
                                 );
+                                newFilter = new Filters(filter);
+                                newFilter.setPaid(calendar.getTime());
                                 productList.add(
                                         new ViewData_Filters(
                                                 fragment.mApplication,
-                                                filter,
+                                                newFilter,
                                                 R.layout.widget_filter_card_layout
                                         )
                                 );
+                                newFilter = new Filters(filter);
+                                newFilter.setAssigned(true);
                                 productList.add(
                                         new ViewData_Filters(
                                                 fragment.mApplication,
-                                                filter,
+                                                newFilter,
                                                 R.layout.widget_filter_card_layout
                                         )
                                 );
@@ -349,10 +359,6 @@ public class Fragment_FilterList extends BaseFragment
                                     productList,
                                     fragment
                             );
-//                            FilterListAdapter<ViewData_Filters> adapter = new FilterListAdapter<>(
-//                                    fragment.getContext(),
-//                                    productList,
-//                                    fragment);
                             fragment.mFilterListView.setAdapter(fragment.mAdapter);
                         }
                         if (fragment.mFilterListView != null) {

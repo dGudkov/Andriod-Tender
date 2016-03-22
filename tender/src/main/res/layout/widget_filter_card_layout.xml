@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:filterTouchesWhenObscured="true"
-    android:background="#43d35b"
-    android:padding="2dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent"
+    android:background="@color/clr_fragment_filter_list_background"
+    android:padding="@dimen/fl_fragment_filter_list_card_padding">
 
-    <TextView
-        android:id="@+id/test_test"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="dthhtr"
-        android:textColor="#ffffff"/>
+        android:layout_height="match_parent"
+        android:background="@color/clr_widget_filter_card_background" >
 
+        <RelativeLayout
+            android:id="@+id/widget_card_layout_checkBox_layout"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@null">
+
+            <ImageView
+                android:id="@+id/widget_card_layout_checkBox"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/widget_card_layout_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -65,6 +65,14 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
     public float FRAGMENT_USER_LOGIN_SIGN_UP_TEXT_SIZE;
     public float FRAGMENT_USER_LOGIN_GLAD_SEE_YOU_TEXT_SIZE;
 
+    // ===========================================================================
+    // Filter List Login fragment
+    // ===========================================================================
+    public float FRAGMENT_FILTER_LIST_CARD_HEIGHT;
+    public float FRAGMENT_FILTER_LIST_CARD_CHECKBOX_LAYOUT_WIDTH;
+    public float FRAGMENT_FILTER_LIST_CARD_CHECKBOX_WIDTH;
+    public float FRAGMENT_FILTER_LIST_COMMENT_TEXT_SIZE;
+
     @Override
     public void onCreate() {
         if (Constants.Config.DEVELOPER_MODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
@@ -158,6 +166,22 @@ public class ApplicationWrapper extends com.nicecode.android.tender.library.Appl
 
             FRAGMENT_USER_LOGIN_GLAD_SEE_YOU_TEXT_SIZE = ((this.metrics.heightPixels *
                     getFloatResource(R.dimen.fl_fragment_user_login_glad_see_you_text_size))
+                    / this.metrics.scaledDensity);
+
+            // ===========================================================================
+            // Filter List Login fragment
+            // ===========================================================================
+            FRAGMENT_FILTER_LIST_CARD_HEIGHT = (int) (this.metrics.heightPixels *
+                    this.getFloatResource(R.dimen.fl_fragment_filter_list_card_height_ratio));
+
+            FRAGMENT_FILTER_LIST_CARD_CHECKBOX_LAYOUT_WIDTH = (int) (this.metrics.widthPixels *
+                    this.getFloatResource(R.dimen.fl_fragment_filter_list_card_checkbox_layout_width_ratio));
+
+            FRAGMENT_FILTER_LIST_CARD_CHECKBOX_WIDTH = FRAGMENT_FILTER_LIST_CARD_CHECKBOX_LAYOUT_WIDTH *
+                    this.getFloatResource(R.dimen.fl_fragment_filter_list_card_checkbox_width_ratio);
+
+            FRAGMENT_FILTER_LIST_COMMENT_TEXT_SIZE = ((this.metrics.heightPixels *
+                    getFloatResource(R.dimen.fl_fragment_filter_list_comment_text_size))
                     / this.metrics.scaledDensity);
 
             initialized = true;
